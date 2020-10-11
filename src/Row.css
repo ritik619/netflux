@@ -1,0 +1,13 @@
+.row_poster {
+  object-fit: contain;
+  width: 100px;
+  transition: transform 250ms;
+  margin: 10px;
+}
+.row_poster:hover {
+  transform: scale(1.4);
+}
+
+.row_posters {
+  display: flex;
+}
