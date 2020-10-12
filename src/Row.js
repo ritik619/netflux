@@ -35,12 +35,12 @@ function Row(props) {
             setTrailerUrl("")
         }
         else {
-            movieTrailer(movie?.name ||movie?.title|| "")
+            movieTrailer(movie?.name ||movie?.title||movie?.original_title|| "")
             .then((url)=>{
                 const urlParams=new URLSearchParams(new URL(url).search)
                 setTrailerUrl(urlParams.get('v'))
             })
-            .catch((error)=>console.log(error))
+            .catch((error)=>console.log(movie))
         }
     }
     //movies make sure every update on movies is counted fetchurl 
@@ -52,6 +52,7 @@ function Row(props) {
                 {/*several row poster */ }
                 {movies.map(movie=>(
                     <div >
+                    {/*console.log(props.title==='TopRated'? movie:"")*/}    
                     <img 
                     onClick={()=>handleClick(movie)}
                     key={movie.id}
@@ -65,3 +66,5 @@ function Row(props) {
 }
 
 export default Row
+
+
